@@ -21,8 +21,16 @@ app.set('views','views')
 
 
 app.get('/', (req, res) => {
-  res.render('index')
+  res.render('index',{
+      title: "Главная"
+    })
 })
+
+app.get('/products', (req, res) => {
+    res.render('index',{
+        title: "Продукты"
+      })
+  })
 
 app.listen(port, () => {
   console.log(`server eshop started at http://localhost:${port}`)
