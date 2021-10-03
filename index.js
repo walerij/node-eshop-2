@@ -8,7 +8,7 @@ const hbs = exphbs.create({
     
 })
 
-
+const productRouter = require('./routes/productRouter')
 
 const app = express()
 const port = 3000
@@ -18,6 +18,7 @@ app.engine('hbs',hbs.engine)
 app.set('view engine','hbs')
 app.set('views','views')
 
+app.use('/products', productRouter)
 
 
 app.get('/', (req, res) => {
@@ -26,11 +27,6 @@ app.get('/', (req, res) => {
     })
 })
 
-app.get('/products', (req, res) => {
-    res.render('index',{
-        title: "Продукты"
-      })
-  })
 
 app.listen(port, () => {
   console.log(`server eshop started at http://localhost:${port}`)
